@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cidade Tipográfica — T-shirts únicas carimbadas à mão com caracteres móveis de madeira. Peças únicas com carácter e caracteres.">
+  <title>Cidade Tipográfica — T-shirts com carácter</title>
+  <link rel="icon" href="https://scontent-lis1-1.xx.fbcdn.net/v/t39.30808-6/299797121_516227610502679_150138306154203374_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=WfiNf2WjYgAQ7kNvwE_Ynpn&_nc_oc=AdrhRfRqV9NxBOkHMx1leaYAhA1amJ3_0l_UzNJLl9IusWS5FHhO6CiDEgZ-_W-WMLU&_nc_zt=23&_nc_ht=scontent-lis1-1.xx&_nc_gid=kYgYNER35Bgf8jCGAri9qg&_nc_ss=7b289&oh=00_Af57z11kfgKzChgbuZDk1a9RtLGPFI3DHWnS00QpBQ9v-Q&oe=6A206D8F" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --black:      #0F0F0F;
+      --white:      #FAFAF8;
+      --grey-100:   #F2F0EC;
+      --grey-200:   #E0DDD8;
+      --grey-500:   #7A7672;
+      --amber:      #C8872A;
+      --amber-dark: #A06820;
+    }
+
+    body {
+      font-family: 'Archivo', sans-serif;
+      font-weight: 400;
+      background-color: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: 60px;
+      background: var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--white);
+    }
+
+    .nav-logo-box {
+      width: 30px;
+      height: 30px;
+      border: 2px solid var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.75rem;
+      letter-spacing: -0.02em;
+      flex-shrink: 0;
+    }
+
+    .nav-wordmark {
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .nav-fb {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.9rem;
+      border: 1.5px solid rgba(250, 250, 248, 0.25);
+      text-decoration: none;
+      color: var(--white);
+      font-weight: 600;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .nav-fb:hover {
+      border-color: var(--amber);
+      color: var(--amber);
+    }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      background-color: var(--black);
+      display: flex;
+      align-items: flex-end;
+      padding: 6rem 2rem 5rem;
+    }
+
+    .hero-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .hero-eyebrow {
+      font-weight: 600;
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 2rem;
+    }
+
+    #hero h1 {
+      font-weight: 900;
+      font-size: clamp(3.8rem, 10vw, 9rem);
+      line-height: 0.92;
+      letter-spacing: -0.04em;
+      color: var(--white);
+      margin-bottom: 3rem;
+      text-transform: uppercase;
+    }
+
+    .hero-bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 2rem;
+      border-top: 1px solid rgba(250, 250, 248, 0.12);
+      padding-top: 2rem;
+    }
+
+    .hero-tagline {
+      font-weight: 400;
+      font-style: italic;
+      font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+      color: rgba(250, 250, 248, 0.55);
+      max-width: 480px;
+      line-height: 1.65;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      background: var(--amber);
+      color: var(--white);
+      font-family: 'Archivo', sans-serif;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .btn-primary:hover { background: var(--amber-dark); }
+
+    /* ─── COMO FUNCIONA ─── */
+    #como-funciona {
+      background-color: var(--grey-100);
+      padding: 6rem 2rem;
+    }
+
+    .section-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      margin-bottom: 4rem;
+    }
+
+    .section-label {
+      display: block;
+      font-weight: 700;
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1rem;
+    }
+
+    .section-header h2 {
+      font-weight: 900;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      color: var(--black);
+      text-transform: uppercase;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--grey-200);
+    }
+
+    .step-card {
+      padding: 2.5rem 2rem 2.5rem 0;
+      border-right: 1px solid var(--grey-200);
+    }
+
+    .step-card:first-child { padding-left: 0; }
+    .step-card:last-child  { border-right: none; padding-right: 0; }
+
+    .step-number {
+      font-weight: 900;
+      font-size: 2.5rem;
+      color: var(--grey-200);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.04em;
+    }
+
+    .step-card h3 {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--black);
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .step-card p {
+      font-size: 0.88rem;
+      color: var(--grey-500);
+      line-height: 1.65;
+    }
+
+    /* ─── ENCOMENDA ─── */
+    #encomendar {
+      background-color: var(--white);
+      padding: 6rem 2rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .form-controls h2 {
+      font-weight: 900;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      color: var(--black);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      line-height: 0.95;
+    }
+
+    .form-controls .form-subtitle {
+      font-size: 0.88rem;
+      color: var(--grey-500);
+      margin-bottom: 2.5rem;
+      margin-top: 1rem;
+      line-height: 1.65;
+    }
+
+    .field-group {
+      margin-bottom: 1.75rem;
+    }
+
+    .field-group label {
+      display: block;
+      font-weight: 700;
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 0.65rem;
+    }
+
+    textarea#msgInput {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1.5px solid var(--grey-200);
+      border-radius: 0;
+      background: var(--grey-100);
+      font-family: 'Archivo', sans-serif;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--black);
+      resize: none;
+      transition: border-color 0.2s;
+      outline: none;
+      line-height: 1.5;
+    }
+
+    textarea#msgInput:focus { border-color: var(--black); }
+
+    textarea#msgInput::placeholder {
+      color: rgba(15, 15, 15, 0.28);
+    }
+
+    .char-counter {
+      text-align: right;
+      font-size: 0.73rem;
+      color: var(--grey-500);
+      margin-top: 0.35rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .char-counter.near-limit { color: var(--amber); font-weight: 700; }
+    .char-counter.at-limit   { color: #8B3A2A; font-weight: 700; }
+
+    .size-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .pill {
+      padding: 0.4rem 1rem;
+      border: 1.5px solid var(--grey-200);
+      background: transparent;
+      font-family: 'Archivo', sans-serif;
+      font-weight: 700;
+      font-size: 0.78rem;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s, color 0.15s;
+      color: var(--black);
+      letter-spacing: 0.04em;
+      border-radius: 0;
+    }
+
+    .pill:hover { border-color: var(--black); }
+
+    .pill.active {
+      background: var(--black);
+      border-color: var(--black);
+      color: var(--white);
+    }
+
+    .color-swatches {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .swatch {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: var(--swatch-color);
+      border: 2.5px solid transparent;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      outline: none;
+    }
+
+    .swatch[data-color="Branco"],
+    .swatch[data-ink="Branco"] {
+      border-color: var(--grey-200);
+    }
+
+    .swatch:hover { transform: scale(1.1); }
+
+    .swatch.active {
+      box-shadow: 0 0 0 2px var(--white), 0 0 0 4px var(--black);
+    }
+
+    .selected-color-label {
+      font-size: 0.75rem;
+      color: var(--grey-500);
+      font-weight: 500;
+    }
+
+    .ink-swatch {
+      width: 28px;
+      height: 28px;
+    }
+
+    .btn-order {
+      width: 100%;
+      padding: 1rem 2rem;
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Archivo', sans-serif;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      margin-top: 0.5rem;
+    }
+
+    .btn-order:hover { background: var(--amber); }
+
+    .order-hint {
+      font-size: 0.73rem;
+      color: var(--grey-500);
+      text-align: center;
+      margin-top: 0.75rem;
+      line-height: 1.5;
+    }
+
+    /* ─── PREVIEW ─── */
+    .form-preview {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+      position: sticky;
+      top: 80px;
+    }
+
+    .preview-label {
+      font-weight: 700;
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+
+    .shirt-scene {
+      position: relative;
+      width: 280px;
+      height: 260px;
+    }
+
+    .preview-shirt {
+      --shirt-color: #F5F0E8;
+      width: 280px;
+      height: 260px;
+      background-color: var(--shirt-color);
+      clip-path: polygon(
+        20% 0%, 30% 0%, 50% 9%, 70% 0%, 80% 0%,
+        100% 18%, 87% 28%, 84% 100%, 16% 100%, 13% 28%, 0% 18%
+      );
+      transition: background-color 0.3s ease;
+      filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.18));
+    }
+
+    .stamp-on-shirt {
+      position: absolute;
+      top: 34%;
+      left: 17%;
+      right: 17%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    #previewText {
+      font-family: 'Archivo', sans-serif;
+      font-weight: 900;
+      font-size: clamp(0.72rem, 1.9vw, 0.95rem);
+      color: #1A1008;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      line-height: 1.7;
+      word-break: break-word;
+      text-align: center;
+      text-shadow:
+        1px 1px 0 rgba(26, 16, 8, 0.25),
+        -0.5px -0.5px 0 rgba(26, 16, 8, 0.15),
+        0 0 8px rgba(26, 16, 8, 0.08);
+      opacity: 0.9;
+      transform: rotate(-0.3deg);
+      transition: opacity 0.2s, color 0.25s;
+    }
+
+    #previewText.is-placeholder {
+      opacity: 0.22;
+      font-style: italic;
+    }
+
+    .shirt-size-badge {
+      position: absolute;
+      bottom: 22px;
+      right: 32px;
+      font-weight: 900;
+      font-size: 1.3rem;
+      color: rgba(0, 0, 0, 0.08);
+      pointer-events: none;
+      letter-spacing: -0.03em;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background-color: var(--black);
+      color: rgba(250, 250, 248, 0.45);
+      padding: 2.5rem 2rem;
+    }
+
+    footer a {
+      color: var(--amber);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    footer a:hover { color: #E09A40; }
+
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .footer-name {
+      font-weight: 900;
+      font-size: 0.85rem;
+      color: var(--white);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      header { padding: 0 1.25rem; }
+      .nav-wordmark { display: none; }
+
+      #hero { padding: 5rem 1.5rem 3.5rem; align-items: flex-start; }
+      .hero-bottom { flex-direction: column; align-items: flex-start; }
+
+      .steps-grid { grid-template-columns: 1fr; border-top: none; }
+      .step-card {
+        padding: 2rem 0;
+        border-right: none;
+        border-top: 1px solid var(--grey-200);
+      }
+
+      .form-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .form-preview { order: -1; position: static; }
+
+      .footer-inner { flex-direction: column; text-align: center; gap: 0.4rem; }
+    }
+
+    @media (max-width: 480px) {
+      .nav-fb span { display: none; }
+      .nav-fb { padding: 0.35rem 0.7rem; }
+      #hero, #como-funciona, #encomendar { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .color-swatches { gap: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ HEADER ══ -->
+  <header>
+    <a class="nav-logo" href="#">
+      <div class="nav-logo-box">CT</div>
+      <span class="nav-wordmark">Cidade Tipográfica</span>
+    </a>
+    <a class="nav-fb" href="https://www.facebook.com/cidadetipografica" target="_blank" rel="noopener noreferrer">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.514c-1.491 0-1.956.931-1.956 1.887v2.254h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+      </svg>
+      <span>Facebook</span>
+    </a>
+  </header>
+
+  <main>
+
+    <!-- ══ HERO ══ -->
+    <section id="hero">
+      <div class="hero-inner">
+        <p class="hero-eyebrow">Tipografia artesanal · Feito em Portugal</p>
+        <h1>Cidade<br>Tipográfica</h1>
+        <div class="hero-bottom">
+          <p class="hero-tagline">Peças únicas com carácter e caracteres. O processo é totalmente manual e minucioso.</p>
+          <a href="#encomendar" class="btn-primary">Encomendar agora</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ COMO FUNCIONA ══ -->
+    <section id="como-funciona">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-label">O processo</span>
+          <h2>Como<br>funciona</h2>
+        </div>
+        <div class="steps-grid">
+
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <h3>Escolhe a mensagem</h3>
+            <p>Até 48 caracteres. Uma palavra, uma frase, uma ideia — em qualquer língua.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <h3>Escolhe tamanho e cor</h3>
+            <p>Disponível em S, M, L, XL e XXL. Vários tons de t-shirt e de tinta.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <h3>Recebe a tua peça</h3>
+            <p>Cada t-shirt é carimbada a pedido. O resultado é sempre ligeiramente diferente — como deve ser.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ ENCOMENDA ══ -->
+    <section id="encomendar">
+      <div class="section-inner">
+        <div class="form-grid">
+
+          <!-- Controlos -->
+          <div class="form-controls">
+            <span class="section-label">Personaliza</span>
+            <h2>Criar a<br>tua peça</h2>
+            <p class="form-subtitle">Compõe a mensagem, escolhe o tamanho e as cores. Depois entra em contacto connosco.</p>
+
+            <div class="field-group">
+              <label for="msgInput">A tua mensagem</label>
+              <textarea id="msgInput" maxlength="48" rows="3" placeholder="Escreve aqui..." aria-describedby="charCounter" aria-label="Mensagem para a t-shirt, máximo 48 caracteres"></textarea>
+              <div class="char-counter" id="charCounter" aria-live="polite">
+                <span id="charCount">0</span>/48 caracteres
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label>Tamanho</label>
+              <div class="size-pills" id="sizePills" role="group" aria-label="Tamanho da t-shirt">
+                <button class="pill" data-size="S" aria-pressed="false">S</button>
+                <button class="pill" data-size="M" aria-pressed="false">M</button>
+                <button class="pill active" data-size="L" aria-pressed="true">L</button>
+                <button class="pill" data-size="XL" aria-pressed="false">XL</button>
+                <button class="pill" data-size="XXL" aria-pressed="false">XXL</button>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label>Cor da t-shirt</label>
+              <div class="color-swatches" id="colorSwatches" role="group" aria-label="Cor da t-shirt">
+                <button class="swatch active" data-color="Branco"
+                  style="--swatch-color: #F5F0E8" aria-label="Branco" aria-pressed="true"></button>
+                <button class="swatch" data-color="Preto"
+                  style="--swatch-color: #2C2416" aria-label="Preto" aria-pressed="false"></button>
+                <button class="swatch" data-color="Cinzento"
+                  style="--swatch-color: #8A8078" aria-label="Cinzento" aria-pressed="false"></button>
+                <button class="swatch" data-color="Azul marinho"
+                  style="--swatch-color: #1E3A5F" aria-label="Azul marinho" aria-pressed="false"></button>
+                <button class="swatch" data-color="Verde floresta"
+                  style="--swatch-color: #2D4A3E" aria-label="Verde floresta" aria-pressed="false"></button>
+                <button class="swatch" data-color="Vermelho tijolo"
+                  style="--swatch-color: #8B3A2A" aria-label="Vermelho tijolo" aria-pressed="false"></button>
+              </div>
+              <div class="selected-color-label" id="colorLabel" aria-live="polite">Branco</div>
+            </div>
+
+            <div class="field-group">
+              <label>Cor da letra</label>
+              <div class="color-swatches" id="inkSwatches" role="group" aria-label="Cor da tinta">
+                <button class="swatch ink-swatch active" data-ink="Preto"
+                  style="--swatch-color: #1A1008" aria-label="Preto" aria-pressed="true"></button>
+                <button class="swatch ink-swatch" data-ink="Sépia"
+                  style="--swatch-color: #5C2E0A" aria-label="Sépia" aria-pressed="false"></button>
+                <button class="swatch ink-swatch" data-ink="Vermelho"
+                  style="--swatch-color: #7A1C1C" aria-label="Vermelho" aria-pressed="false"></button>
+                <button class="swatch ink-swatch" data-ink="Azul"
+                  style="--swatch-color: #14285C" aria-label="Azul" aria-pressed="false"></button>
+                <button class="swatch ink-swatch" data-ink="Verde"
+                  style="--swatch-color: #1A3A28" aria-label="Verde" aria-pressed="false"></button>
+                <button class="swatch ink-swatch" data-ink="Branco"
+                  style="--swatch-color: #F0E8D8" aria-label="Branco" aria-pressed="false"></button>
+              </div>
+              <div class="selected-color-label" id="inkLabel" aria-live="polite">Preto</div>
+            </div>
+
+            <button class="btn-order" id="orderBtn">
+              Encomendar via Facebook
+            </button>
+            <p class="order-hint">Serás redirecionado para a nossa página de Facebook para enviares a encomenda.</p>
+          </div>
+
+          <!-- Preview -->
+          <div class="form-preview">
+            <div class="preview-label">Pré-visualização</div>
+            <div class="shirt-scene">
+              <div class="preview-shirt" id="previewShirt"></div>
+              <div class="stamp-on-shirt" id="previewBox" aria-live="polite" aria-label="Pré-visualização da mensagem carimbada">
+                <span id="previewText" class="is-placeholder">A tua mensagem aqui</span>
+              </div>
+              <div class="shirt-size-badge" id="shirtSizeBadge" aria-hidden="true">L</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-name">Cidade Tipográfica</div>
+      <p class="footer-copy">
+        <a href="https://www.facebook.com/cidadetipografica" target="_blank" rel="noopener noreferrer">Facebook</a>
+        &nbsp;·&nbsp; Feito com carácter em Portugal
+        &nbsp;·&nbsp; &copy; <span id="year"></span>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const state = { message: '', size: 'L', color: 'Branco', inkColor: '#1A1008' };
+
+      const msgInput       = document.getElementById('msgInput');
+      const charCount      = document.getElementById('charCount');
+      const charCounter    = document.getElementById('charCounter');
+      const previewText    = document.getElementById('previewText');
+      const sizePills      = document.getElementById('sizePills');
+      const colorSwatches  = document.getElementById('colorSwatches');
+      const colorLabel     = document.getElementById('colorLabel');
+      const inkSwatches    = document.getElementById('inkSwatches');
+      const inkLabel       = document.getElementById('inkLabel');
+      const orderBtn       = document.getElementById('orderBtn');
+      const previewShirt   = document.getElementById('previewShirt');
+      const shirtSizeBadge = document.getElementById('shirtSizeBadge');
+
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      function hexToRgba(hex, alpha) {
+        const r = parseInt(hex.slice(1, 3), 16);
+        const g = parseInt(hex.slice(3, 5), 16);
+        const b = parseInt(hex.slice(5, 7), 16);
+        return 'rgba(' + r + ',' + g + ',' + b + ',' + alpha + ')';
+      }
+
+      function applyInkColor(hex) {
+        previewText.style.color = hex;
+        previewText.style.textShadow = [
+          '1px 1px 0 '       + hexToRgba(hex, 0.25),
+          '-0.5px -0.5px 0 ' + hexToRgba(hex, 0.15),
+          '0 0 8px '         + hexToRgba(hex, 0.08)
+        ].join(', ');
+      }
+
+      // ── Message ──
+      msgInput.addEventListener('input', function () {
+        const val = this.value;
+        state.message = val;
+        charCount.textContent = val.length;
+        charCounter.classList.toggle('near-limit', val.length >= 40 && val.length < 48);
+        charCounter.classList.toggle('at-limit',   val.length === 48);
+
+        if (val.trim() === '') {
+          previewText.textContent = 'A tua mensagem aqui';
+          previewText.classList.add('is-placeholder');
+        } else {
+          previewText.textContent = val.toUpperCase();
+          previewText.classList.remove('is-placeholder');
+        }
+      });
+
+      // ── Size ──
+      sizePills.querySelectorAll('.pill').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          sizePills.querySelectorAll('.pill').forEach(function (b) {
+            b.classList.remove('active');
+            b.setAttribute('aria-pressed', 'false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-pressed', 'true');
+          state.size = btn.dataset.size;
+          shirtSizeBadge.textContent = btn.dataset.size;
+        });
+      });
+
+      // ── Shirt color ──
+      colorSwatches.querySelectorAll('.swatch').forEach(function (sw) {
+        sw.addEventListener('click', function () {
+          colorSwatches.querySelectorAll('.swatch').forEach(function (s) {
+            s.classList.remove('active');
+            s.setAttribute('aria-pressed', 'false');
+          });
+          sw.classList.add('active');
+          sw.setAttribute('aria-pressed', 'true');
+          state.color = sw.dataset.color;
+          colorLabel.textContent = sw.dataset.color;
+          previewShirt.style.setProperty('--shirt-color', sw.style.getPropertyValue('--swatch-color').trim());
+        });
+      });
+
+      // ── Ink color ──
+      inkSwatches.querySelectorAll('.swatch').forEach(function (sw) {
+        sw.addEventListener('click', function () {
+          inkSwatches.querySelectorAll('.swatch').forEach(function (s) {
+            s.classList.remove('active');
+            s.setAttribute('aria-pressed', 'false');
+          });
+          sw.classList.add('active');
+          sw.setAttribute('aria-pressed', 'true');
+          state.inkColor = sw.style.getPropertyValue('--swatch-color').trim();
+          inkLabel.textContent = sw.dataset.ink;
+          applyInkColor(state.inkColor);
+        });
+      });
+
+      applyInkColor(state.inkColor);
+
+      // ── Order ──
+      orderBtn.addEventListener('click', function () {
+        window.open('https://www.facebook.com/cidadetipografica', '_blank', 'noopener,noreferrer');
+      });
+    })();
+  </script>
+
+</body>
+</html>

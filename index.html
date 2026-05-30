@@ -531,6 +531,33 @@
       font-size: 0.75rem;
     }
 
+    /* ─── TOAST ─── */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(12px);
+      background: var(--black);
+      color: var(--white);
+      padding: 0.9rem 1.6rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      pointer-events: none;
+      z-index: 999;
+      max-width: 90vw;
+      text-align: center;
+      line-height: 1.5;
+      border-left: 3px solid var(--amber);
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 768px) {
       header { padding: 0 1.25rem; }
@@ -725,9 +752,11 @@
     </div>
   </footer>
 
+  <div class="toast" id="toast" role="alert" aria-live="assertive"></div>
+
   <script>
     (function () {
-      const state = { message: '', size: 'L', color: 'Branco', inkColor: '#1A1008' };
+      const state = { message: '', size: 'L', color: 'Branco', inkColor: '#1A1008', inkLabel: 'Preto' };
 
       const msgInput       = document.getElementById('msgInput');
       const charCount      = document.getElementById('charCount');
@@ -816,6 +845,7 @@
           sw.classList.add('active');
           sw.setAttribute('aria-pressed', 'true');
           state.inkColor = sw.style.getPropertyValue('--swatch-color').trim();
+          state.inkLabel = sw.dataset.ink;
           inkLabel.textContent = sw.dataset.ink;
           applyInkColor(state.inkColor);
         });
@@ -823,9 +853,32 @@
 
       applyInkColor(state.inkColor);
 
+      // ── Toast ──
+      const toast = document.getElementById('toast');
+      function showToast(msg) {
+        toast.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(function () { toast.classList.remove('show'); }, 4000);
+      }
+
       // ── Order ──
       orderBtn.addEventListener('click', function () {
-        window.open('https://www.facebook.com/cidadetipografica', '_blank', 'noopener,noreferrer');
+        const msg = state.message.trim() ? state.message.toUpperCase() : '(sem mensagem)';
+        const summary =
+          'Encomenda Cidade Tipográfica\n' +
+          'Mensagem: ' + msg + '\n' +
+          'Tamanho: ' + state.size + '\n' +
+          'Cor da t-shirt: ' + state.color + '\n' +
+          'Cor da letra: ' + state.inkLabel;
+
+        navigator.clipboard.writeText(summary).then(function () {
+          showToast('Encomenda copiada! Abre o Facebook e cola na mensagem.');
+          setTimeout(function () {
+            window.open('https://www.facebook.com/cidadetipografica', '_blank', 'noopener,noreferrer');
+          }, 800);
+        }).catch(function () {
+          window.open('https://www.facebook.com/cidadetipografica', '_blank', 'noopener,noreferrer');
+        });
       });
     })();
   </script>
